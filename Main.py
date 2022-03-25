@@ -15,8 +15,14 @@ while True:
     print (datime2)
     print (datime)
     
-    if datime == 51:
+    
+    if datime == 49:
+        mode=1
+    if datime == 51 and mode==1:
         store_data(temperature,pressure,humidity)
+        mode=0
+        print("save!")
+    
     
     if datime2==0 or datime2==1 or datime2==2:
         display.drawCLOCK()
