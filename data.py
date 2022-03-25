@@ -13,5 +13,5 @@ def store_data(temp, pres, hum):
         "Pressure": int(pres),
         "Humidity": int(hum)
     }
-    with open('/home/pi/Desktop/schule/software_wetter_station/main_program/data.json', 'w') as outfile:
-        json.dump(data, outfile)
+    with open('/home/pi/Desktop/schule/software_wetter_station/main_program/data.json', 'a') as outfile:
+        json.dump(data, outfile, indent=2)
