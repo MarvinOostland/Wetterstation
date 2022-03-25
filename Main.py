@@ -1,16 +1,22 @@
 from display import *
 from lightsensor import *
 import time
+from data import *
 
 display.setup()
 while True:
     checklight()
+    temperature,pressure,humidity = readBME280All()
     now = datetime.datetime.now()
     datime=int(now.strftime("%S"))
     datime=datime*1.666666
-    datime=int(datime/10)
-    datime2=datime
+    datime=int(datime)
+    datime2=int(datime/10)
+    print (datime2)
     print (datime)
+    
+    if datime == 51:
+        store_data(temperature,pressure,humidity)
     
     if datime2==0 or datime2==1 or datime2==2:
         display.drawCLOCK()

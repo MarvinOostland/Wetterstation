@@ -3,6 +3,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import ST7735
 import datetime
+import os
 from bme280 import*
 
 disp = ST7735.ST7735(port=0, cs=0, dc=25, backlight=None, rst=24, width=125, height=159, rotation=270, invert=False)
