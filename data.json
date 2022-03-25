@@ -1,1 +1,41 @@
-{"date": "25.03.2022//10:36", "temperature": 22.75, "pressure": 1018.2962951940888, "humidity": 28.476181505488604}
+{
+  "Date/Time": "25.03.2022//13:43",
+  "Temperature": 23,
+  "Pressure": 1016,
+  "Humidity": 20
+}{
+  "Date/Time": "25.03.2022//13:44",
+  "Temperature": 27,
+  "Pressure": 1017,
+  "Humidity": 18
+}{
+  "Date/Time": "25.03.2022//13:49",
+  "Temperature": 32,
+  "Pressure": 1017,
+  "Humidity": 17
+}{
+  "Date/Time": "25.03.2022//13:50",
+  "Temperature": 34,
+  "Pressure": 1018,
+  "Humidity": 15
+}{
+  "Date/Time": "25.03.2022//13:51",
+  "Temperature": 33,
+  "Pressure": 1017,
+  "Humidity": 15
+}{
+  "Date/Time": "25.03.2022//13:52",
+  "Temperature": 32,
+  "Pressure": 1017,
+  "Humidity": 16
+}{
+  "Date/Time": "25.03.2022//13:53",
+  "Temperature": 31,
+  "Pressure": 1015,
+  "Humidity": 18
+}{
+  "Date/Time": "25.03.2022//13:54",
+  "Temperature": 30,
+  "Pressure": 1014,
+  "Humidity": 19
+}
