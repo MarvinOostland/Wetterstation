@@ -9,7 +9,7 @@ from bme280 import*
 disp = ST7735.ST7735(port=0, cs=0, dc=25, backlight=None, rst=24, width=125, height=159, rotation=270, invert=False)
 
 class display():
-    def __init__(self, temp, disp):
+    def __init__(self, temp=None, disp=None):
         self.temp=temp
         
     def setup():
@@ -27,6 +27,7 @@ class display():
         tempmin=int(temperature)
         tempmax=int(temperature)
         
+        
     def drawTEMP():
         
         WIDTH = disp.width
@@ -39,11 +40,11 @@ class display():
 
         font = ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=42)
         fonttiny=ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=16)
-        
+
         temperature,pressure,humidity = readBME280All()
-        
+
         draw.rectangle((0, 0, WIDTH - 1, HEIGHT - 1), outline=(0, 0, 255), fill=(0, 0, 0))
-        draw.text((8, 25), str(int(temperature))+"°C", font=font, fill=(255, 255, 255))       
+        draw.text((8, 25), f'{int(temperature)}°C', font=font, fill=(255, 255, 255))
         draw.text((8, 6), "Temperature", font=fonttiny, fill=(255, 255, 255))
         if temperature>=tempmax:
             tempmax=int(temperature)
@@ -51,9 +52,15 @@ class display():
             tempmin=int(temperature)
         #draw.text((8, 60), "", font=fonttiny, fill=(255, 255, 255))
         #draw.text((8, 75), "", font=fonttiny, fill=(255, 255, 255))
-        draw.text((8, 90), "Max:"+ str(tempmax)+ "°C", font=fonttiny, fill=(255, 255, 255))
-        draw.text((8, 105), "Min:"+ str(tempmin)+ "°C", font=fonttiny, fill=(255, 255, 255))
-        
+        draw.text(
+            (8, 90), f"Max:{str(tempmax)}°C", font=fonttiny, fill=(255, 255, 255)
+        )
+
+        draw.text(
+            (8, 105), f"Min:{str(tempmin)}°C", font=fonttiny, fill=(255, 255, 255)
+        )
+
+
         disp.display(img)
         
     def drawCLOCK():
@@ -89,11 +96,17 @@ class display():
 
         font = ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=42)
         fonttiny=ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=16)
-        
+
         temperature,pressure,humidity = readBME280All()
-        
+
         draw.rectangle((0, 0, WIDTH - 1, HEIGHT - 1), outline=(0, 0, 255), fill=(0, 0, 0))
-        draw.text((8, 25), str(int(pressure)-1000)+"hPa", font=font, fill=(255, 255, 255))       
+        draw.text(
+            (8, 25),
+            f'{str(int(pressure)-1000)}hPa',
+            font=font,
+            fill=(255, 255, 255),
+        )
+
         draw.text((8, 6), "Pressure", font=fonttiny, fill=(255, 255, 255))
         #draw.text((8, 60), "", font=fonttiny, fill=(255, 255, 255))
         if pressure>=presmax:
@@ -101,9 +114,21 @@ class display():
         if pressure<=presmin:
             presmin=int(pressure)
         #draw.text((8, 75), "", font=fonttiny, fill=(255, 255, 255))
-        draw.text((8, 90), "Max:"+str(presmax-1000)+"hPa", font=fonttiny, fill=(255, 255, 255))
-        draw.text((8, 105), "Min:"+str(presmin-1000)+"hPa", font=fonttiny, fill=(255, 255, 255))
-        
+        draw.text(
+            (8, 90),
+            f"Max:{str(presmax-1000)}hPa",
+            font=fonttiny,
+            fill=(255, 255, 255),
+        )
+
+        draw.text(
+            (8, 105),
+            f"Min:{str(presmin-1000)}hPa",
+            font=fonttiny,
+            fill=(255, 255, 255),
+        )
+
+
         disp.display(img)
 
     
@@ -118,11 +143,11 @@ class display():
 
         font = ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=42)
         fonttiny=ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=16)
-        
+
         temperature,pressure,humidity = readBME280All()
-        
+
         draw.rectangle((0, 0, WIDTH - 1, HEIGHT - 1), outline=(0, 0, 255), fill=(0, 0, 0))
-        draw.text((8, 25), str(int(humidity))+"%", font=font, fill=(255, 255, 255))       
+        draw.text((8, 25), f'{int(humidity)}%', font=font, fill=(255, 255, 255))
         draw.text((8, 6), "Humidity", font=fonttiny, fill=(255, 255, 255))
         #draw.text((8, 60), "", font=fonttiny, fill=(255, 255, 255))
         if humidity>=hvacmax:
@@ -130,7 +155,10 @@ class display():
         if humidity<=hvacmin:
             hvacmin=int(humidity)
         #draw.text((8, 75), "", font=fonttiny, fill=(255, 255, 255))
-        draw.text((8, 90), "Max:"+str(hvacmax)+"%", font=fonttiny, fill=(255, 255, 255))
-        draw.text((8, 105), "Min:"+str(hvacmin)+"%", font=fonttiny, fill=(255, 255, 255))
-        
+        draw.text((8, 90), f"Max:{str(hvacmax)}%", font=fonttiny, fill=(255, 255, 255))
+        draw.text(
+            (8, 105), f"Min:{str(hvacmin)}%", font=fonttiny, fill=(255, 255, 255)
+        )
+
+
         disp.display(img)
