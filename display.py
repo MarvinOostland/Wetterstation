@@ -94,7 +94,7 @@ class display():
         img = Image.new('RGB', (WIDTH, HEIGHT))
         draw = ImageDraw.Draw(img)
 
-        font = ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=42)
+        font = ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=30)
         fonttiny=ImageFont.truetype(font='/home/pi/Desktop/schule/software_wetter_station/main_program/telegrama_render.otf', size=16)
 
         temperature,pressure,humidity = readBME280All()
@@ -102,7 +102,7 @@ class display():
         draw.rectangle((0, 0, WIDTH - 1, HEIGHT - 1), outline=(0, 0, 255), fill=(0, 0, 0))
         draw.text(
             (8, 25),
-            f'{str(int(pressure)-1000)}hPa',
+            f'{str(int(pressure))}hPa',
             font=font,
             fill=(255, 255, 255),
         )
@@ -116,14 +116,14 @@ class display():
         #draw.text((8, 75), "", font=fonttiny, fill=(255, 255, 255))
         draw.text(
             (8, 90),
-            f"Max:{str(presmax-1000)}hPa",
+            f"Max:{str(presmax)}hPa",
             font=fonttiny,
             fill=(255, 255, 255),
         )
 
         draw.text(
             (8, 105),
-            f"Min:{str(presmin-1000)}hPa",
+            f"Min:{str(presmin)}hPa",
             font=fonttiny,
             fill=(255, 255, 255),
         )
